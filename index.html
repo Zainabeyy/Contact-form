@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contact form</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contact Us</h1>
+      <form>
+        <div class="inputContainer">
+          <label for="firstName">First Name</label
+          ><input type="text" id="firstName" name="firstName" class="box"/>
+          <p class="error">This field is required</p>
+        </div>
+        <div class="inputContainer">
+          <label for="lastName">Last Name</label
+          ><input type="text" id="lastName" name="lastName" class="box"/>
+          <p class="error">This field is required</p>
+        </div>
+        <div class="inputContainer">
+          <label for="emial">Email Address</label
+          ><input type="email" id="email" name="email" class="box"/>
+          <p class="error">
+            This field is required | Please enter a valid email address
+          </p>
+        </div>
+        <fieldset>
+          <legend>Query Type</legend>
+          <div class="inputContainer query box">
+            <input type="radio" name="query" id="general" />
+            <label for="general">General Enquiry </label>
+          </div>
+          <div class="inputContainer query box">
+            <input type="radio" name="query" id="support" />
+            <label for="support">Support Request</label>
+          </div>
+          <p class="error">Please select a query type</p>
+        </fieldset>
+        <div class="inputContainer Message">
+          <label for="message">Message</label>
+          <textarea name="message" id="message"></textarea>
+          <p class="error">This field is required</p>
+        </div>
+        <div class="inputContainer">
+          <label for="permission"
+            >I consent to being contacted by the team</label
+          ><input type="checkbox" name="permission" id="permission" />
+          <p class="error">
+            To submit this form, please consent to being contacted
+          </p>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <!-- 
+  Message Sent!
+  Thanks for completing the form. We'll be in touch soon!
+   -->
+  </body>
+</html>
