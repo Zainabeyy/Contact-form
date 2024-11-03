@@ -10,11 +10,50 @@
     --GreyDarker: hsl(187, 24%, 22%);
 }
 
+/* ---- defalut styling ----  */
+
 *{
     padding:0px;
     margin:0px;
     box-sizing: border-box;
 }
+label{
+    font-size: 1rem;
+    display: block;
+}
+input{
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: var(--GreyDarker);
+    cursor: pointer;
+}
+fieldset{
+    border: none;
+}
+
+ /* ---- Pseudo classes ----  */
+
+.inline{
+    display: inline;
+}
+p.error{
+    display: none;
+    color: var(--Red);
+    margin-top:0.5rem ;
+    font-size: 0.875rem;
+}
+.box{
+    width: 100%;
+    height: 3.25rem;
+    border-radius:0.5rem ;
+    border: 1px solid var(--GreyMedium);
+}
+div.inputContainer{
+    margin:1.25rem 0rem;
+}
+
+
 body{
     font-family: "Karla", sans-serif;
     color: var(--GreyDarker);
@@ -31,52 +70,203 @@ div.container{
     background-color: white;
     border-radius: 1.125rem;
 }
-label{
-    font-size: 1rem;
-    display: block;
-}
-div.inputContainer{
-    margin:1.25rem 0rem;
-}
-p.error{
-    display: none;
-}
-.box{
-    width: 100%;
-    height: 3.25rem;
-    border-radius:0.5rem ;
-    border: 1px solid var(--GreyMedium);
-}
-input{
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-    font-size: 1rem;
-    color: var(--GreyDarker);
-}
-input[type="radio"]{
-    width: 1.125rem;
-    height: 1.125rem;
-    margin:0rem 0.9rem 0rem 1.5rem ;
-}
+
+/* ---- radio input styling ----  */
+
 div.query{
     display: flex;
     justify-content:flex-start;
     align-items: center;
     margin-top: 1rem;
 }
-fieldset{
-    border: none;
+div.query:last-child{
+    margin: 0rem;
+}
+input[type="radio"]{
+    visibility: hidden;
 }
 div.query label{
     font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+.circle{
+    width: 1.125rem;
+    height: 1.125rem;
+    margin:0rem 0.9rem 0rem 1.5rem ;
+    border: 1px solid var(--GreyMedium);
+    border-radius: 50%;
+    display: inline-block;
+}
+input[type="radio"]:checked ~ label .circle{
+    border: 3px solid var(--GreenLighter);
+    outline: 1px solid var(--GreenMedium);
+    background-color: var(--GreenMedium);
+}
+div.query:has(input[type=radio]:checked){
+    background-color: var(--GreenLighter);
+    border: 1px solid var(--GreenMedium);
+}
+
+/* ---- message input ----  */
+
 div.Message{
     margin-top: 0.5rem;
 }
 textarea{
     margin-top: 0.5rem;
+    padding: 1rem;
     width: 100%;
     min-height: 12rem;
     border-color: var(--GreyMedium);
     border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: "Karla", sans-serif;
+    color: var(--GreyDarker);
+}
+
+ /* ---- input checkbox ----  */
+
+input[type="checkbox"]{
+    visibility: hidden;
+    position: absolute;
+}
+.permission{
+    padding-inline: 0.2rem;
+}
+.permission label{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.permission label .checkbox{
+    width: 1.344rem;
+    height: 1.125rem;
+    margin:0rem 1rem 0rem 0rem ;
+    border: 1px solid var(--GreyDarker);
+    display: block;
+}
+input[type="checkbox"]:checked ~ label .checkbox{
+    background-image: url('images/icon-checkbox-check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+}
+
+/* ---- submit button ----  */
+
+button{
+    background-color: var(--GreenMedium);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 1.2rem 0rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.successMessage{
+    background-color: var(--GreyDarker);
+    color: white;
+    padding: 1rem 1rem 1.5rem;
+    border-radius: 0.5rem;
+    position: fixed;
+    top: -15rem;
+    transition: transform 1 ease-in;
+}
+.successMessage.show{
+    transform: translateY(17rem);
+}
+.successMessage img{
+    float: left;
+    max-width: 100%;
+    height: auto;
+    margin-right: 0.4rem;
+}
+.successMessage h1{
+    font-size: 1rem;
+}
+.successMessage p{
+    font-size: 0.875rem;
+    margin-top: 0.875rem;
+}
+
+/* ---- focus and active styling ----  */
+
+input:focus,textarea:focus{
+    border: 1px solid var(--GreenMedium);
+    outline: none;
+}
+label[for="general"]{
+    cursor: pointer;
+}
+@media (hover:hover) {
+    button:hover{
+        background-color: var(--GreyDarker);
+    }
+    input:hover{
+        border: 1px solid var(--GreenMedium);
+    }
+}
+
+@media only screen and (min-width:900px){
+    div.container{
+        width: 50rem;
+        padding: 2.5rem;
+    }
+    form{
+        display: grid;
+        grid-template-areas: 
+        "item1 item2"
+        "item3 item3"
+        "item4 item4"
+        "item5 item5"
+        "item6 item6"
+        "item7 item7";
+        column-gap: 1rem;
+    }
+    .grid-item:nth-child(1) {
+        grid-area:item1;
+    }
+    
+    .grid-item:nth-child(2) {
+        grid-area:item2;
+    }
+    
+    .grid-item:nth-child(3) {
+        grid-area:item3;
+    }
+    
+    .grid-item:nth-child(4) {
+        grid-area:item4;
+    }
+    
+    .grid-item:nth-child(5) {
+        grid-area:item5;
+    }
+    
+    .grid-item:nth-child(6) {
+        grid-area:item6;
+    }
+    .grid-item:last-child {
+        grid-area:item7;
+    }
+    div.flex{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0rem;
+    }
+    textarea{
+        min-height: 8rem;
+    }
+    div.query{
+        margin: 0rem;
+    }
+    .queryError{
+        margin-bottom: 1rem;
+    }
 }
