@@ -83,7 +83,8 @@ div.query:last-child{
     margin: 0rem;
 }
 input[type="radio"]{
-    visibility: hidden;
+    opacity: 0;
+    position: absolute;
 }
 div.query label{
     font-size: 1.2rem;
@@ -129,7 +130,7 @@ textarea{
  /* ---- input checkbox ----  */
 
 input[type="checkbox"]{
-    visibility: hidden;
+    opacity: 0;
     position: absolute;
 }
 .permission{
@@ -146,6 +147,11 @@ input[type="checkbox"]{
     margin:0rem 1rem 0rem 0rem ;
     border: 1px solid var(--GreyDarker);
     display: block;
+}
+input[type=checkbox]:focus ~ label .checkbox{
+    border: 1px solid var(--GreyMedium);
+    outline: 1px solid var(--GreenMedium);
+    outline-offset: 1px;
 }
 input[type="checkbox"]:checked ~ label .checkbox{
     background-image: url('images/icon-checkbox-check.svg');
@@ -168,16 +174,17 @@ button{
     border-radius: 0.5rem;
 }
 
-.successMessage{
+#successMessage{
     background-color: var(--GreyDarker);
     color: white;
     padding: 1rem 1rem 1.5rem;
     border-radius: 0.5rem;
     position: fixed;
     top: -15rem;
-    transition: transform 1 ease-in;
+    transform: translateY(0);
+    transition: transform .8s ease-in;
 }
-.successMessage.show{
+#successMessage.show{
     transform: translateY(17rem);
 }
 .successMessage img{
@@ -196,9 +203,10 @@ button{
 
 /* ---- focus and active styling ----  */
 
-input:focus,textarea:focus{
-    border: 1px solid var(--GreenMedium);
-    outline: none;
+input:focus,textarea:focus,.query:focus-within,button:focus{
+    border: 1px solid var(--GreyMedium);
+    outline: 1px solid var(--GreenMedium);
+    outline-offset: 1px;
 }
 label[for="general"]{
     cursor: pointer;
